@@ -1,7 +1,7 @@
 from torch.utils.data import Dataset
 
 ### Torch dataloader for the NYUDv2 dataset
-class HydranetDataset(Dataset):
+class HydraNetDataset(Dataset):
 
     def __init__(self, data_file, transform=None):
         with open(data_file, "rb") as f:

@@ -7,34 +7,17 @@ import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.autograd import Variable
+from lib.network.common import *
+from lib.network.encoder import MobileNetv2
+from lib.network.decoder import MTLWRefineNet
 
-from common import *
-from encoder import MobileNetV2Simple, MobileNetV2
-from decoder import LightWeightRefineNetSimple, LightweightRefineNet
-
-### There is no architecture difference between the simple and normal model implementations ###
-### The simple implementation is easily readible ###
-# class HydraNet(nn.Module):
-#     def __init__(self):        
-#         super().__init__() # Python 3
-#         self.num_tasks = 2
-#         self.num_classes = 6 
-#         self.encoder = MobileNetv2Simple()
-#         self.decoder = MTLWRefineNetSimple()
-
-#     def forward(self, x):
-#         encoder_outputs = self.encoder(x)
-#         out_segm, out_depth = self.decoder(l3, l4, l5, l6, l7, l8)
-#         return out_segm, out_depth
-
-class HydraNet(nn.Module):
+class HydraNetNYUD(nn.Module):
     def __init__(self):        
         super().__init__() # Python 3
         self.num_tasks = 2
         self.num_classes = 6 
-        self.encoder = MobileNetV2()
-        self.decoder = MTLWRefineNet()
+        self.encoder = MobileNetv2()
+        self.decoder = MTLWRefineNet(self.encoder._out_c, self.num_classes)
 
     def forward(self, x):
         encoder_outputs = self.encoder(x)

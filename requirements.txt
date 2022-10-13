@@ -1,0 +1,7 @@
+open3d==0.14.1
+matplotlib
+torch
+torchvision
+pillow
+cv2
+numpy
