@@ -11,6 +11,11 @@ This project demonstrates the use of a multi-task deep learning algorithm to lea
 - ```lib```/```utils``` contains the scripts for utility functions
 
 
-## Output
+## Output (Work in progress)
+The current segmentation output is noisy. 
+
+
+
 
 ## References
+This project is based on the paper "Real-Time Joint Semantic Segmentation and Depth Estimation Using Asymmetric Annotations". Some of the code has been adapted from the official [repository](https://github.com/DrSleep/multi-task-refinenet).
