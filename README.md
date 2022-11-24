@@ -14,6 +14,8 @@ This project demonstrates the use of a multi-task deep learning algorithm to lea
 ## Output (Work in progress)
 The current segmentation output is noisy. 
 
+![screen-gif](./output/out.gif) 
+
 
 
 
